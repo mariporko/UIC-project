@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Leak Fix - Kenya Water Services Trust Fund Service</title>
+		<meta charset="utf-8">
+
+		<link href="https://fonts.googleapis.com/css?family=Karla|Playfair+Display" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+		<div class="row">
+	 		<div class="col-sm-12 nav-bar">
+				<a href="step-1.html"><button class="nav-button">1</button></a>
+				<a href="step-2.html"><button class="nav-button">2</button></a>
+				<button class="nav-button current-page btn-static">3</button>
+				<a href="step-4.html"><button class="nav-button">4</button></a>
+				<a href="step-5.html"><button class="nav-button">5</button></a>
+			</div>
+		</div>
+		<div class="row align-items-center content">
+			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
+				<h2>Describe the problem</h2>
+
+				<button class="input-select" data-toggle="collapse" data-target="#text-input"><span class="glyphicon glyphicon-pencil"></span></button>
+				<button class="input-select" data-toggle="collapse" data-target="#voice-input"><span class="glyphicon glyphicon-volume-up"></span></button>
+				<button class="input-select" data-toggle="collapse" data-target="#picture-input"><span class="glyphicon glyphicon-camera"></span></button>
+
+				<div id="text-input" class="collapse form-group">
+				  <p>Written description of the problem:</p>
+				  <textarea class="form-control" rows="5" id="comment"></textarea>
+				</div>
+
+				<div id="voice-input" class="collapse">
+				  <p>Record a voice message detailing the problem:</p>
+				  <input type="button" class="btn btn-success" value="Start" onclick="start()" id="startBtn">
+				  
+				</div>
+
+				<div id="picture-input" class="collapse">
+				  	<p>Attach pictures to the report</p>
+					<input type="file" accept="image/*" capture>
+					<input type="file" accept="image/*" capture="user">
+					<input type="file" accept="image/*" capture="environment">
+				</div>
+
+			</div>	
+			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
+				<p>Level of urgency?</p>
+				<form action="/action_page.php" method="get">
+					<input type="range" name="points" min="0" max="10">
+					<input type="submit" class="btn-success">
+				</form>
+				<a href="step-4.html" class="btn" role="button">Continue</a>
+			</div>	
+		</div>
+
+		<script>
+			 var startBtn = document.getElementById('startBtn');
+
+			 function start() {
+			     navigator.mediaDevices.getUserMedia({
+			   audio: true
+			     }).then(gotStream).catch(logError);
+			     startBtn.disabled = false;
+			 }
+
+			 function gotStream(stream) {
+			     stream.getTracks().forEach(function (track) {
+			   track.onended = function () {
+			       startBtn.disabled = stream.active;
+			   };
+			     });
+			 }
+
+			 function logError(error) {
+			     log(error.name + ": " + error.message);
+			 }
+		</script>
+	</body>
+</html>
