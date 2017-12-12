@@ -3,8 +3,6 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Leak Fix - Kenya Water Services Trust Fund Service</title>
-
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
 
 		<link href="https://fonts.googleapis.com/css?family=Karla|Playfair+Display" rel="stylesheet">
@@ -15,10 +13,54 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	</head>
-	<body class="step-4">
+	<body>
+		<div class="row">
+	 		<div class="col-sm-12 nav-bar">
+				<a href="step-1.html"><button class="nav-button">1</button></a>
+				<a href="step-2.html"><button class="nav-button">2</button></a>
+				<a href="step-3.html"><button class="nav-button">3</button></a>
+				<button class="nav-button current-page">4</button>
+				<button class="nav-button nav-button-disabled">5</button>
+			</div>
+		</div>
+		<div class="row align-items-center content">
+			<div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
+				<h2>Fill in your contact information</h2>
 
-		<h1>Leak fix</h1>
-		<button href="#1">Report <br>malfunction</button>
+				<form class="form-horizontal" action="/action_page.php">
+				  <div class="form-group">
+				    <label class="control-label col-sm-3" for="firstname">First name:</label>
+				    <div class="col-sm-7">
+				      <input type="text" class="form-control" id="firstname" placeholder="First name">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="control-label col-sm-3" for="lastname">Last name:</label>
+				    <div class="col-sm-7">
+				      <input type="text" class="form-control" id="lastname" placeholder="Last name">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="control-label col-sm-3" for="number">Phone number:</label>
+				    <div class="col-sm-7"> 
+				      <input type="text" class="form-control" id="number" placeholder="Phone number">
+				    </div>
+				  </div>
+				  <div class="form-group"> 
+				    <div class="col-sm-12">
+				      	<!-- <button type="submit" class="btn btn-default">Submit</button> -->
 
+				    	<a href="step-5.html" class="btn" role="button">Continue</a>
+				    </div>
+				  </div>
+				</form>
+
+			</div>	
+		</div>
+		<script>
+			function goBack() {
+			    window.history.back();
+			}
+		</script>
 	</body>
 </html>

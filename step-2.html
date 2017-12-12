@@ -17,14 +17,14 @@
 		<div class="row">
 	 		<div class="col-sm-12 nav-bar">
 				<a href="step-1.html"><button class="nav-button">1</button></a>
-				<button class="nav-button current-page btn-static">2</button>
-				<a href="step-3.html"><button class="nav-button">3</button></a>
-				<a href="step-4.html"><button class="nav-button">4</button></a>
-				<a href="step-5.html"><button class="nav-button">5</button></a>
+				<button class="nav-button current-page">2</button>
+				<button class="nav-button nav-button-disabled">3</button>
+				<button class="nav-button nav-button-disabled">4</button>
+				<button class="nav-button nav-button-disabled">5</button>
 			</div>
 		</div>
 		<div class="row align-items-center content">
-			<div class="col-sm-12">
+			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
 				<h2>Location of the problem?</h2>
 
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.768087339521!2d36.82153101416859!3d-1.3146599360271494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10535fdac153%3A0xd98d92c922265b29!2sKenya+Water+Institute!5e0!3m2!1sen!2sfi!4v1512649538636" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -32,5 +32,11 @@
 				<a href="step-3.html" class="btn" role="button">Send location</a>
 			</div>	
 		</div>
+		<script>
+			function goBack() {
+			    window.history.back();
+			}
+		</script>
 	</body>
+
 </html>

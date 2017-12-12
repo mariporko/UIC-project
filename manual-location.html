@@ -16,18 +16,16 @@
 	<body>
 		<div class="row">
 	 		<div class="col-sm-12 nav-bar">
-
 				<a href="step-1.html"><button class="nav-button">1</button></a>
-				<a href="step-2.html"><button class="nav-button">2</button></a>
-				<button class="nav-button current-page">3</button>
+				<button class="nav-button current-page">2</button>
+				<button class="nav-button nav-button-disabled">3</button>
 				<button class="nav-button nav-button-disabled">4</button>
 				<button class="nav-button nav-button-disabled">5</button>
 			</div>
 		</div>
 		<div class="row align-items-center content">
 			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
-				<h2>Describe the problem</h2>
-
+				<h2>Location of the problem?</h2>
 				<div class="panel-group" id="accordion">
 				  <div class="panel panel-default">
 				    <div class="panel-heading">
@@ -38,7 +36,7 @@
 				    </div>
 				    <div id="text-input" class="panel-collapse collapse">
 				      <div class="panel-body">
-				      	<p>Written description of the problem:</p>
+				      	<p>Address and possible arrival instructions:</p>
 					  	<textarea class="form-control" rows="5" id="comment"></textarea>
 				      </div>
 				    </div>
@@ -52,69 +50,41 @@
 				    </div>
 				    <div id="voice-input" class="panel-collapse collapse">
 				      <div class="panel-body">
-				      	<p>Record a voice message detailing the problem:</p>
-						 <input type="button" class="btn btn-success" value="Start" onclick="start()" id="startBtn">
+						 <input type="button" class="btn btn-success" value="Start recording" onclick="start()" id="startBtn">
 				  	  </div>
-				    </div>
-				  </div>
-				  <div class="panel panel-default">
-				    <div class="panel-heading">
-				      <h4 class="panel-title">
-				        <button class="input-select" data-toggle="collapse" data-target="#picture-input" data-parent="#accordion"><span class="glyphicon glyphicon-camera"></span></button>
-				        <h3>Add a picture</h3>
-				      </h4>
-				    </div>
-				    <div id="picture-input" class="panel-collapse collapse">
-				      <div class="panel-body">
-				      	<p>Attach pictures to the report</p>
-						<input type="file" accept="image/*" capture>
-						<input type="file" accept="image/*" capture="user">
-						<input type="file" accept="image/*" capture="environment">
-					  </div>
 				    </div>
 				  </div>
 				</div>
 
-			<br><br>
-			
-			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
-				<div class="form-group">
-  					<label for="sel1">Level of urgency?</label>
-				  	<select class="form-control" id="sel1">
-				    <option>Low – no imminent risk of damage</option>
-				    <option>Medium</option>
-				    <option>High – serious damage if not repaired quickly</option>
-				  </select>
-				</div>
-				<a href="step-4.html" class="btn" role="button">Continue</a>
+				<a href="step-3.html" class="btn" role="button">Send location</a>
 			</div>	
 		</div>
 
 		<script>
-			 var startBtn = document.getElementById('startBtn');
+		 var startBtn = document.getElementById('startBtn');
 
-			 function start() {
-			     navigator.mediaDevices.getUserMedia({
-			   audio: true
-			     }).then(gotStream).catch(logError);
-			     startBtn.disabled = false;
-			 }
+		 function start() {
+		     navigator.mediaDevices.getUserMedia({
+		   audio: true
+		     }).then(gotStream).catch(logError);
+		     startBtn.disabled = false;
+		 }
 
-			 function gotStream(stream) {
-			     stream.getTracks().forEach(function (track) {
-			   track.onended = function () {
-			       startBtn.disabled = stream.active;
-			   };
-			     });
-			 }
+		 function gotStream(stream) {
+		     stream.getTracks().forEach(function (track) {
+		   track.onended = function () {
+		       startBtn.disabled = stream.active;
+		   };
+		     });
+		 }
 
-			 function logError(error) {
-			     log(error.name + ": " + error.message);
-			 }
-			function goBack() {
-			    window.history.back();
-			}
-
-		</script>
+		 function logError(error) {
+		     log(error.name + ": " + error.message);
+		 }
+		 	
+		function goBack() {
+		    window.history.back();
+		}
+	</script>
 	</body>
 </html>

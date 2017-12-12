@@ -16,11 +16,11 @@
 	<body>
 		<div class="row">
 	 		<div class="col-sm-12 nav-bar">
-				<button class="nav-button current-page btn-static">1</button>
-				<a href="step-2.html"><button class="nav-button">2</button></a>
-				<a href="step-3.html"><button class="nav-button">3</button></a>
-				<a href="step-4.html"><button class="nav-button">4</button></a>
-				<a href="step-5.html"><button class="nav-button">5</button></a>
+				<button class="nav-button current-page nav-button-disabled">1</button>
+				<button class="nav-button nav-button-disabled">2</button>
+				<button class="nav-button nav-button-disabled">3</button>
+				<button class="nav-button nav-button-disabled">4</button>
+				<button class="nav-button nav-button-disabled">5</button>
 			</div>
 		</div>
 		<div class="row align-items-center content">
@@ -33,5 +33,10 @@
 					Or <strong><a href="manual-location.html">Enter manually</a></strong>.
 			</div>	
 		</div>
+		<script>
+			function goBack() {
+			    window.history.back();
+			}
+		</script>
 	</body>
 </html>
